@@ -8,5 +8,6 @@ Tutorial Source:
 https://www.youtube.com/watch?v=K9qMm3JbOH0
 
 Great turorial
+* one minor correction: 
 obj.setVisible(true); needs to be on the last line of the function
 
