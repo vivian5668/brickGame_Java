@@ -3,7 +3,7 @@ package brickBracker;
 import java.awt.*;
 
 public class MapGenerator {
-    public int map[][];
+    public int map [][]; // map is the variable name?  public int[][] map??
     public int brickWidth;
     public int brickHeight;
     public MapGenerator(int row, int col) {
