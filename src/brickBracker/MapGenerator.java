@@ -3,7 +3,7 @@ package brickBracker;
 import java.awt.*;
 
 public class MapGenerator {
-    public int map [][]; // map is the variable name?  public int[][] map??
+    public int[][] map; // map is the variable name?  public int[][] map??
     public int brickWidth;
     public int brickHeight;
     public MapGenerator(int row, int col) {
@@ -21,11 +21,15 @@ public class MapGenerator {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[0].length; j++) {
                 if (map[i][j] > 0) {
+                    //set inside
                     g.setColor(Color.white);
                     g.fillRect(j * brickWidth + 80, i * brickHeight + 50, brickWidth, brickHeight);
 
-                    g.setStroke((new BasicStroke(3)));
+                    //set border
+                    g.setStroke((new BasicStroke(3))); //border width
                     g.setColor(Color.black);
+
+                    //finally draw everything
                     g.drawRect(j * brickWidth + 80, i * brickHeight + 50, brickWidth, brickHeight);
                 }
             }

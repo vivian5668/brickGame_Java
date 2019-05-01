@@ -15,14 +15,14 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private int totalBricks = brickColCount * brickRowCount; // current available bricks that can be hit
 
     private Timer timer;
-    private int delay = 5;
+    private int delay = 10;
 
     private int playerX = 310; // player's board, initial position, playerY always in the height of board
 
     private int ballposX = 120;
     private int ballposY = 350;
     private int ballXdir = -1;
-    private int ballYdir = -1;
+    private int ballYdir = -2;
 
     //make the bricks
     private MapGenerator map;
@@ -41,7 +41,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
         g.setColor(Color.black);
         g.fillRect(1, 1, 692, 592);
 
-        map.draw((Graphics2D)g); //??
+        map.draw((Graphics2D) g); //??
 
         //borders
         g.setColor(Color.yellow);
@@ -94,6 +94,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        int flag = 0;
         timer.start();
         if (play) {
             //detect the catching board
@@ -113,7 +114,6 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
                         Rectangle rect = new Rectangle(brickX, brickY, brickWidth, brickHeight);
                         Rectangle ballRect = new Rectangle(ballposX, ballposY, 20, 20);
                         Rectangle brickRect = rect;
-
                         if (ballRect.intersects((brickRect))) {
                             map.setBrickValue(0, i, j);
                             totalBricks--;
